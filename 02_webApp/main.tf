@@ -1,10 +1,10 @@
 resource "azurerm_resource_group" "tfRGwebAppRg" {
-  name = "webAppRg"
-  location = "centralindia"
+  name = var.resource_group_name
+  location = var.resource_group_location
 }
 
 resource "azurerm_service_plan" "tfServicePlan" {
-  name = "tfazureWebApp"
+  name = var.azurerm_service_plan_name
   resource_group_name = azurerm_resource_group.tfRGwebAppRg.name
   location = azurerm_resource_group.tfRGwebAppRg.location
   os_type = "Linux"
@@ -12,7 +12,7 @@ resource "azurerm_service_plan" "tfServicePlan" {
 }
 
 resource "azurerm_linux_web_app" "tfWebApp"{
-  name = "tfazWebApp"
+  name = var.azurerm_linux_web_app_name
   resource_group_name = azurerm_resource_group.tfRGwebAppRg.name
   location = azurerm_resource_group.tfRGwebAppRg.location
   service_plan_id = azurerm_service_plan.tfServicePlan.id
