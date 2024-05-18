@@ -1,4 +1,4 @@
-<blockType> <blockLable><blockLable> {
+#<blockType> <blockLable><blockLable> {
     identifier = expression
 }
 
